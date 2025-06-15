@@ -31,6 +31,19 @@ export const useBlogPostSEO = (post: BlogPost | undefined, slug: string | undefi
       }
 
       // Add article structured data
+      const getKeywords = (slug: string) => {
+        switch (slug) {
+          case 'what-is-acft-comprehensive-overview':
+            return "ACFT, Army Combat Fitness Test, ACFT score chart, army fitness test, promotion points, ACFT scoring system, military fitness, ACFT events, deadlift, power throw, push ups, sprint drag carry, plank, 2 mile run";
+          case 'understanding-acft-score-chart-promotion-points':
+            return "ACFT score chart, promotion points, Army fitness test, military career, ACFT scoring, fitness categories";
+          case 'hex-bar-setup-acft-deadlift':
+            return "ACFT, deadlift, hex bar, Army Combat Fitness Test, military fitness, training";
+          default:
+            return "ACFT, Army Combat Fitness Test, military fitness";
+        }
+      };
+
       const structuredData = {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -52,9 +65,7 @@ export const useBlogPostSEO = (post: BlogPost | undefined, slug: string | undefi
           "@id": `https://acft-calculator.com/blog/${slug}`
         },
         "articleSection": "Fitness",
-        "keywords": slug === 'understanding-acft-score-chart-promotion-points' 
-          ? "ACFT score chart, promotion points, Army fitness test, military career, ACFT scoring, fitness categories"
-          : "ACFT, deadlift, hex bar, Army Combat Fitness Test, military fitness, training"
+        "keywords": getKeywords(slug)
       };
 
       let scriptTag = document.querySelector('script[data-article="true"]') as HTMLScriptElement;

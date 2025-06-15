@@ -7,6 +7,15 @@ import { Calendar, User, ArrowRight } from 'lucide-react';
 const Blog = () => {
   const blogPosts = [
     {
+      id: 'what-is-acft-comprehensive-overview',
+      title: 'What is ACFT? A Comprehensive Overview of the Army Combat Fitness Test',
+      description: 'Complete beginner\'s guide to the Army Combat Fitness Test (ACFT). Learn about all 6 events, ACFT score chart, scoring system, and how it impacts promotion points in your military career.',
+      date: '2024-12-17',
+      author: 'ACFT Expert',
+      readTime: '12 min read',
+      slug: 'what-is-acft-comprehensive-overview'
+    },
+    {
       id: 'understanding-acft-score-chart-promotion-points',
       title: 'Understanding the ACFT Score Chart and Its Impact on Promotion Points',
       description: 'Comprehensive guide to ACFT scoring system, fitness categories, and how your test performance directly affects promotion points and career advancement in the Army.',

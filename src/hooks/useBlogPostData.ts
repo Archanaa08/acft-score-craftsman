@@ -1,6 +1,75 @@
 
 export const useBlogPostData = () => {
   const blogPosts = {
+    'what-is-acft-comprehensive-overview': {
+      title: 'What is ACFT? A Comprehensive Overview of the Army Combat Fitness Test',
+      description: 'Complete beginner\'s guide to the Army Combat Fitness Test (ACFT). Learn about all 6 events, ACFT score chart, scoring system, and how it impacts promotion points in your military career.',
+      date: '2024-12-17',
+      author: 'ACFT Expert',
+      readTime: '12 min read',
+      content: {
+        introduction: 'The Army Combat Fitness Test (ACFT) represents a revolutionary change in how the U.S. Army measures physical fitness and combat readiness. Replacing the decades-old Army Physical Fitness Test (APFT), the ACFT is designed to better assess functional fitness that directly translates to battlefield performance. Whether you\'re a new recruit, seasoned soldier, or simply curious about military fitness standards, this comprehensive guide will help you understand everything about the ACFT, from its six challenging events to how the ACFT score chart impacts your military career.',
+        sections: [
+          {
+            title: 'Understanding the Army Combat Fitness Test (ACFT)',
+            content: 'The ACFT is the Army\'s premier physical fitness assessment, implemented army-wide to replace the traditional push-up, sit-up, and 2-mile run format. This comprehensive army fitness test was developed based on extensive research into combat tasks and the physical demands soldiers face in modern warfare. Unlike its predecessor, the ACFT uses age and gender-neutral standards for most events, emphasizing functional movement patterns that mirror real combat scenarios.'
+          },
+          {
+            title: 'The Six ACFT Events Explained',
+            content: 'The ACFT consists of six distinct events, each designed to test different aspects of physical fitness essential for combat effectiveness. These events assess muscular strength, power, endurance, and cardiovascular fitness through movements that soldiers actually perform in combat situations.'
+          },
+          {
+            title: '3-Repetition Maximum Deadlift (MDL)',
+            content: 'The first event tests your maximum lifting strength using a hex bar loaded with weights. Soldiers perform three repetitions at their maximum safe weight, with scores ranging from 140 pounds (60 points) to 340+ pounds (100 points). This event simulates lifting heavy equipment, ammunition, or injured comrades during combat operations. Proper form includes maintaining a straight back, driving through the heels, and achieving full hip and knee extension at the top of each lift.'
+          },
+          {
+            title: 'Standing Power Throw (SPT)',
+            content: 'This explosive power event requires soldiers to throw a 10-pound medicine ball backward and overhead for maximum distance. The SPT tests the ability to generate power quickly, simulating actions like throwing grenades, lifting equipment overhead, or explosive movements during combat. Scoring ranges from 4.5 meters (60 points) to 12.5+ meters (100 points). Success depends on proper technique, including a deep squat, explosive hip drive, and coordinated upper body release.'
+          },
+          {
+            title: 'Hand-Release Push-ups (HRP)',
+            content: 'Moving beyond traditional push-ups, the HRP requires soldiers to lift their hands off the ground at the bottom of each repetition, ensuring full range of motion and eliminating partial repetitions. This event builds upper body and core strength essential for climbing, carrying equipment, and combat maneuvers. Soldiers must complete between 10 (60 points) and 60+ (100 points) repetitions within two minutes, maintaining proper form throughout.'
+          },
+          {
+            title: 'Sprint-Drag-Carry (SDC)',
+            content: 'Perhaps the most combat-specific event, the SDC combines five different movement patterns: 50-meter sprint, 50-meter sled drag, 50-meter lateral shuffle, 50-meter carry (two 40-pound kettlebells), and final 50-meter sprint. This event simulates battlefield movements like rushing to cover, dragging wounded soldiers, moving tactically, and carrying ammunition. Times range from 3:00 (60 points) to 1:33 or faster (100 points).'
+          },
+          {
+            title: 'Plank (PLK)',
+            content: 'The plank replaced sit-ups as the core strength assessment, requiring soldiers to maintain a static hold position. This event better reflects the core stability needed for carrying heavy loads, maintaining shooting positions, and overall functional strength. Hold times range from 2:00 (60 points) to 4:20+ (100 points). Proper form includes straight body alignment, engaged core muscles, and avoiding hip sagging or elevation.'
+          },
+          {
+            title: '2-Mile Run (2MR)',
+            content: 'The familiar 2-mile run remains the final event, testing cardiovascular endurance crucial for sustained combat operations. While similar to the old APFT run, the ACFT version uses age and gender-neutral standards for most age groups. Times range from 21:00 (60 points) to 13:30 or faster (100 points), depending on age category.'
+          },
+          {
+            title: 'ACFT Score Chart and Scoring System',
+            content: 'The ACFT scoring system uses a 600-point scale, with each event contributing up to 100 points. The ACFT score chart determines your fitness category: Gold (540-600 points), Silver (480-539 points), and Black (360-479 points). Understanding this scoring system is crucial because your total score directly impacts promotion points and career advancement opportunities. The minimum passing score is 60 points per event, totaling 360 points overall.'
+          },
+          {
+            title: 'How ACFT Scores Impact Promotion Points',
+            content: 'Your ACFT performance significantly affects your promotion potential through the military\'s promotion points system. Soldiers achieving Gold category scores receive maximum promotion points for physical fitness, while Silver and Black category performers receive proportionally fewer points. This system rewards excellence and encourages soldiers to train beyond minimum standards. Higher ACFT scores can be the difference between promotion and remaining at your current rank, making consistent high performance essential for career advancement.'
+          },
+          {
+            title: 'ACFT Training Strategies for Success',
+            content: 'Successful ACFT preparation requires a comprehensive approach targeting all fitness components. Focus on functional movements that translate directly to test events: deadlifts and squats for the MDL, plyometric exercises for the SPT, push-up progressions for HRP, interval training for SDC, core strengthening for PLK, and cardiovascular training for the 2MR. Progressive overload, proper recovery, and event-specific practice are key to improving your position on the ACFT score chart.'
+          },
+          {
+            title: 'Common ACFT Mistakes to Avoid',
+            content: 'Many soldiers make preventable errors that limit their ACFT performance. Common mistakes include: focusing only on weak events while neglecting strong ones, training individual events in isolation rather than integrated fitness, ignoring proper form in favor of higher repetitions or weights, inadequate recovery between training sessions, and failing to practice under test conditions. Understanding these pitfalls helps you develop more effective training strategies.'
+          },
+          {
+            title: 'ACFT vs APFT: Key Differences',
+            content: 'The transition from APFT to ACFT represents a fundamental shift in military fitness philosophy. Key differences include: six events versus three, functional movements versus basic calisthenics, age and gender-neutral standards versus demographic-specific scoring, emphasis on combat-relevant fitness versus general fitness, and more comprehensive assessment of physical capabilities. These changes better align fitness testing with actual job demands soldiers face in combat environments.'
+          },
+          {
+            title: 'Preparing for Your First ACFT',
+            content: 'First-time ACFT participants should focus on familiarization and gradual progression. Start by learning proper form for each event, gradually increase training intensity over several weeks, practice events in sequence to simulate test conditions, understand scoring standards and set realistic goals, and ensure adequate rest and nutrition leading up to the test. Remember that the ACFT is more demanding than the old APFT, requiring comprehensive fitness rather than just cardiovascular endurance.'
+          }
+        ],
+        conclusion: 'The Army Combat Fitness Test represents the future of military fitness assessment, providing a comprehensive evaluation of combat-relevant physical capabilities. Understanding the ACFT score chart, mastering all six events, and recognizing how your performance impacts promotion points are essential for military career success. Whether you\'re preparing for your first ACFT or looking to move from Black to Silver or Gold category, consistent training, proper form, and strategic preparation will help you achieve your fitness goals. The ACFT isn\'t just a test - it\'s a blueprint for the physical readiness required of modern soldiers, emphasizing functional fitness that directly translates to battlefield effectiveness and mission success.'
+      }
+    },
     'understanding-acft-score-chart-promotion-points': {
       title: 'Understanding the ACFT Score Chart and Its Impact on Promotion Points',
       description: 'Master the ACFT scoring system and understand how your fitness test performance directly impacts your promotion points and career advancement opportunities in the Army.',
