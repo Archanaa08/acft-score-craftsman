@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Calculator, Home, Contact } from 'lucide-react';
+import { Calculator, Home, Contact, BookOpen } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 
 const Navigation = () => {
@@ -12,6 +11,7 @@ const Navigation = () => {
   const navItems = [
     { name: 'Home', path: '/', icon: Home },
     { name: 'Calculator', path: '/calculator', icon: Calculator },
+    { name: 'Blog', path: '/blog', icon: BookOpen },
     { name: 'Contact', path: '/contact', icon: Contact },
   ];
 
