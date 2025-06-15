@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -14,8 +13,8 @@ const Blog = () => {
       author: 'ACFT Expert',
       readTime: '12 min read',
       slug: 'what-is-acft-comprehensive-overview',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=250&fit=crop',
-      imageAlt: 'Person using laptop for ACFT training research'
+      image: '/lovable-uploads/5dcb0e4b-2081-4b32-b670-8abdd30173e4.png',
+      imageAlt: 'Army Combat Fitness Test overview showing all six ACFT events with American flag'
     },
     {
       id: 'understanding-acft-score-chart-promotion-points',

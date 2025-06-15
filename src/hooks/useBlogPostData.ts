@@ -6,8 +6,8 @@ export const useBlogPostData = () => {
       date: '2025-06-15',
       author: 'ACFT Expert',
       readTime: '12 min read',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=400&fit=crop',
-      imageAlt: 'Person using laptop for ACFT training research',
+      image: '/lovable-uploads/5dcb0e4b-2081-4b32-b670-8abdd30173e4.png',
+      imageAlt: 'Army Combat Fitness Test overview showing all six ACFT events with American flag',
       content: {
         introduction: 'The Army Combat Fitness Test (ACFT) represents a revolutionary change in how the U.S. Army measures physical fitness and combat readiness. Replacing the decades-old Army Physical Fitness Test (APFT), the ACFT is designed to better assess functional fitness that directly translates to battlefield performance. Whether you\'re a new recruit, seasoned soldier, or simply curious about military fitness standards, this comprehensive guide will help you understand everything about the ACFT, from its six challenging events to how the ACFT score chart impacts your military career.',
         sections: [
