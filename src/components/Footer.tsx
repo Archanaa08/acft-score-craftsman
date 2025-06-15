@@ -85,7 +85,10 @@ const Footer = () => {
 
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} ACFT Calculator. All rights reserved.
+            &copy; {new Date().getFullYear()} ACFT Calculator. All rights reserved.
+          </p>
+          <p className="text-muted-foreground text-xs mt-1">
+            &copy; {new Date().getFullYear()} acftscore.one
           </p>
           <p className="text-muted-foreground text-xs mt-2">
             This calculator is not affiliated with the U.S. Army and is for informational purposes only.
