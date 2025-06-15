@@ -1,4 +1,3 @@
-
 import { Calculator as CalculatorIcon, Target, Users, Clock, Dumbbell, Trophy } from 'lucide-react';
 
 export const sliderRanges = {
@@ -23,7 +22,7 @@ export const acftEvents = [
   {
     id: 'deadlift',
     name: '3-Repetition Maximum Deadlift (MDL)',
-    icon: <Dumbbell className="h-6 w-6" />,
+    icon: 'Dumbbell',
     description: 'The Maximum Deadlift tests muscular strength, balance, and flexibility.',
     procedure: [
       'Stand with feet shoulder-width apart behind the hex bar',
@@ -45,7 +44,7 @@ export const acftEvents = [
   {
     id: 'powerThrow',
     name: 'Standing Power Throw (SPT)',
-    icon: <Target className="h-6 w-6" />,
+    icon: 'Target',
     description: 'The Standing Power Throw measures explosive power of the hips, legs, trunk, and arms.',
     procedure: [
       'Stand with both feet behind the start line',
@@ -66,7 +65,7 @@ export const acftEvents = [
   {
     id: 'pushups',
     name: 'Hand-Release Push-up (HRP)',
-    icon: <Users className="h-6 w-6" />,
+    icon: 'Users',
     description: 'The Hand-Release Push-up tests muscular endurance of the chest, shoulders, and triceps.',
     procedure: [
       'Start in the push-up position with hands flat on ground',
@@ -87,7 +86,7 @@ export const acftEvents = [
   {
     id: 'sprintDragCarry',
     name: 'Sprint-Drag-Carry (SDC)',
-    icon: <Clock className="h-6 w-6" />,
+    icon: 'Clock',
     description: 'The Sprint-Drag-Carry tests multiple fitness components including power, strength, and agility.',
     procedure: [
       'Sprint 25 meters to the 25m line',
@@ -108,7 +107,7 @@ export const acftEvents = [
   {
     id: 'plank',
     name: 'Plank (PLK)',
-    icon: <Trophy className="h-6 w-6" />,
+    icon: 'Trophy',
     description: 'The Plank tests core muscular endurance, stability, and neuromuscular control.',
     procedure: [
       'Start in the push-up position',
@@ -129,7 +128,7 @@ export const acftEvents = [
   {
     id: 'twoMileRun',
     name: '2-Mile Run (2MR)',
-    icon: <CalculatorIcon className="h-6 w-6" />,
+    icon: 'CalculatorIcon',
     description: 'The 2-Mile Run tests aerobic and muscular endurance and cardiovascular fitness.',
     procedure: [
       'Complete 2 miles (3.2 kilometers) as fast as possible',
