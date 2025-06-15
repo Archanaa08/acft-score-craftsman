@@ -15,31 +15,52 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://acft-calculator.com" />
     <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:site_name" content="ACFT Calculator" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="ACFT Calculator - Army Combat Fitness Test Score Calculator" />
     <meta name="twitter:description" content="Free ACFT Calculator with detailed event guide. Calculate your Army Combat Fitness Test score and learn proper techniques." />
     <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="twitter:site" content="@ACFTCalculator" />
+    <meta name="twitter:creator" content="@ACFTCalculator" />
     
     <!-- Additional SEO Meta Tags -->
-    <meta name="robots" content="index, follow" />
-    <meta name="googlebot" content="index, follow" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="language" content="English" />
     <meta name="revisit-after" content="7 days" />
     <meta name="distribution" content="global" />
     <meta name="rating" content="general" />
+    <meta name="geo.region" content="US" />
+    <meta name="geo.country" content="United States" />
+    <meta name="theme-color" content="#1a1a1a" />
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://acft-calculator.com" />
     
-    <!-- Favicon -->
+    <!-- Alternate URLs for different pages -->
+    <link rel="alternate" hreflang="en" href="https://acft-calculator.com" />
+    <link rel="alternate" hreflang="en-US" href="https://acft-calculator.com" />
+    
+    <!-- Favicon and Icons -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/src/main.tsx" as="script" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
     
     <!-- JSON-LD Schema Markup for SEO -->
     <script type="application/ld+json">
@@ -47,19 +68,132 @@
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "ACFT Calculator",
-      "description": "Free Army Combat Fitness Test calculator with comprehensive guide for all 6 ACFT events",
+      "alternateName": "Army Combat Fitness Test Calculator",
+      "description": "Free Army Combat Fitness Test calculator with comprehensive guide for all 6 ACFT events including deadlift, power throw, push-ups, sprint-drag-carry, plank, and 2-mile run",
       "url": "https://acft-calculator.com",
+      "sameAs": [
+        "https://acft-calculator.com/calculator",
+        "https://acft-calculator.com/about",
+        "https://acft-calculator.com/contact"
+      ],
       "applicationCategory": "HealthApplication",
       "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "softwareVersion": "1.0",
+      "datePublished": "2024-01-01",
+      "dateModified": "2024-12-15",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "ACFT Calculator",
+        "url": "https://acft-calculator.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "ACFT Calculator",
+        "url": "https://acft-calculator.com"
+      },
+      "mainEntity": {
+        "@type": "Thing",
+        "name": "Army Combat Fitness Test",
+        "description": "The Army Combat Fitness Test (ACFT) is a physical fitness test used by the United States Army to assess the physical readiness of soldiers."
+      },
+      "featureList": [
+        "Calculate ACFT scores for all 6 events",
+        "Instant score calculation",
+        "Fitness category determination",
+        "Mobile-friendly interface",
+        "Comprehensive event guide",
+        "Official scoring standards"
+      ],
+      "screenshot": "https://lovable.dev/opengraph-image-p98pqg.png"
+    }
+    </script>
+
+    <!-- Additional Schema for Calculator Tool -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ACFT Score Calculator",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web Browser",
+      "url": "https://acft-calculator.com/calculator",
+      "description": "Calculate your Army Combat Fitness Test score with our professional calculator tool",
+      "featureList": [
+        "3-Repetition Maximum Deadlift scoring",
+        "Standing Power Throw calculation",
+        "Hand-Release Push-ups scoring",
+        "Sprint-Drag-Carry evaluation",
+        "Plank hold timing",
+        "2-Mile Run performance"
+      ],
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD"
-      },
-      "author": {
-        "@type": "Organization",
-        "name": "ACFT Calculator"
       }
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the ACFT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Army Combat Fitness Test (ACFT) is the Army's premier physical fitness test, designed to better connect fitness with combat readiness. It consists of six events that test different aspects of physical fitness."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the 6 ACFT events?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The six ACFT events are: 3-Repetition Maximum Deadlift (MDL), Standing Power Throw (SPT), Hand-Release Push-ups (HRP), Sprint-Drag-Carry (SDC), Plank (PLK), and 2-Mile Run (2MR)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the minimum passing score for ACFT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The minimum passing score is 60 points per event, with a total minimum score of 360 points across all six events."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://acft-calculator.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Calculator",
+          "item": "https://acft-calculator.com/calculator"
+        }
+      ]
     }
     </script>
   </head>
