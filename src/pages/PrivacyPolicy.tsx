@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -73,7 +72,7 @@ const PrivacyPolicy = () => {
             <CardContent className="prose prose-sm max-w-none">
               <p className="text-muted-foreground">
                 If you have any questions about this Privacy Policy, please contact us through our contact form 
-                or email us at privacy@acft-calculator.com.
+                or email us at <a href="mailto:clangity@gmail.com" className="underline">clangity@gmail.com</a>.
               </p>
             </CardContent>
           </Card>
