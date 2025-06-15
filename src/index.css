@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -50,7 +51,7 @@
   }
 
   .dark {
-    --background: 222 61% 17%;      /* Deep navy background: hsl(222, 61%, 17%) */
+    --background: 0 0% 0%;              /* Pure black background */
     --foreground: 210 40% 98%;
 
     --card: 225 52% 12%;            /* Slightly darker card for contrast */
@@ -68,11 +69,14 @@
     --acft-yellow-light: 48 96% 89%; /* #FEF3C7 */
     --acft-yellow-dark: 41 97% 46%;  /* #F59E0B */
 
+    --muted: 0 0% 0%;                   /* Black muted background */
+    --muted-foreground: 210 40% 98%;    /* White text for muted */
+
     --border: 221 39% 27%;            /* strong slightly-blue border */
     --input: 221 39% 23%;
     --ring: 214 84% 56%;
     
-    --sidebar-background: 222 61% 14%;  /* Sidebar matches new background tone */
+    --sidebar-background: 0 0% 0%;      /* Black sidebar background */
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
