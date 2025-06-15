@@ -132,8 +132,8 @@ export const useBlogPostData = () => {
       date: '2025-06-05',
       author: 'ACFT Expert',
       readTime: '8 min read',
-      image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=400&fit=crop',
-      imageAlt: 'Fitness equipment and laptop showing training data',
+      image: '/lovable-uploads/2b37379a-0179-4f48-8f6a-e61f55a5549a.png',
+      imageAlt: 'Army soldier demonstrating hex bar deadlift setup: grip, stance, safety for ACFT event',
       content: {
         introduction: 'The 3-Repetition Maximum Deadlift (MDL) is the first event in the Army Combat Fitness Test, and proper hex bar setup is crucial for both performance and safety. This comprehensive guide will walk you through every aspect of setting up and executing the perfect ACFT deadlift.',
         sections: [

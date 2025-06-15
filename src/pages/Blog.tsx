@@ -35,8 +35,8 @@ const Blog = () => {
       author: 'ACFT Expert',
       readTime: '8 min read',
       slug: 'hex-bar-setup-acft-deadlift',
-      image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=250&fit=crop',
-      imageAlt: 'Fitness equipment and laptop showing training data'
+      image: '/lovable-uploads/2b37379a-0179-4f48-8f6a-e61f55a5549a.png',
+      imageAlt: 'Army soldier demonstrating hex bar deadlift setup: grip, stance, safety for ACFT event'
     }
   ];
 
