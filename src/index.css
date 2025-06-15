@@ -50,13 +50,13 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 222 61% 17%;      /* Deep navy background: hsl(222, 61%, 17%) */
     --foreground: 210 40% 98%;
 
-    --card: 222.2 84% 4.9%;
+    --card: 225 52% 12%;            /* Slightly darker card for contrast */
     --card-foreground: 210 40% 98%;
 
-    --popover: 222.2 84% 4.9%;
+    --popover: 224 56% 22%;         /* Popover uses a softer blue */
     --popover-foreground: 210 40% 98%;
 
     --primary: var(--acft-yellow); /* Make primary yellow in dark mode */
@@ -64,21 +64,21 @@
     --accent: var(--acft-yellow);
     --accent-foreground: var(--acft-yellow-foreground);
 
-    --acft-yellow: 43 96% 56%; /* #FACC15 (tailwind yellow-400) */
+    --acft-yellow: 43 96% 56%; /* #FACC15 */
     --acft-yellow-light: 48 96% 89%; /* #FEF3C7 */
     --acft-yellow-dark: 41 97% 46%;  /* #F59E0B */
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
+    --border: 221 39% 27%;            /* strong slightly-blue border */
+    --input: 221 39% 23%;
     --ring: 214 84% 56%;
     
-    --sidebar-background: 240 5.9% 10%;
+    --sidebar-background: 222 61% 14%;  /* Sidebar matches new background tone */
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent: 220 41% 28%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-border: 220 27% 29%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
