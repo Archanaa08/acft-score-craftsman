@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -92,11 +93,11 @@ const Home = () => {
               The ACFT is the Army's premier physical fitness test, designed to better connect fitness with combat readiness.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Changed: Black background block for About/Assessment */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-black text-white rounded-xl border border-border p-8 shadow-md transition-shadow">
             <div>
-              <h3 className="text-2xl font-semibold text-foreground mb-4">Six Event Assessment</h3>
-              <ul className="space-y-3 text-muted-foreground">
+              <h3 className="text-2xl font-semibold mb-4 text-white">Six Event Assessment</h3>
+              <ul className="space-y-3">
                 <li>• <strong>3-Repetition Maximum Deadlift (MDL)</strong> - Tests muscular strength</li>
                 <li>• <strong>Standing Power Throw (SPT)</strong> - Tests explosive power</li>
                 <li>• <strong>Hand-Release Push-ups (HRP)</strong> - Tests muscular endurance</li>
@@ -105,9 +106,9 @@ const Home = () => {
                 <li>• <strong>2-Mile Run (2MR)</strong> - Tests aerobic endurance</li>
               </ul>
             </div>
-            <div className="bg-card border border-border rounded-lg p-6">
-              <h4 className="text-xl font-semibold text-foreground mb-4">Scoring Information</h4>
-              <p className="text-muted-foreground mb-4">
+            <div className="bg-card border border-border rounded-lg p-6 text-foreground">
+              <h4 className="text-xl font-semibold mb-4">Scoring Information</h4>
+              <p className="mb-4">
                 Each event is scored on a 0-100 point scale. The minimum passing score is 60 points per event, 
                 with a total minimum score of 360 points.
               </p>
@@ -142,3 +143,4 @@ const Home = () => {
 };
 
 export default Home;
+
