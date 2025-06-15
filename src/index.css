@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -45,6 +44,9 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --acft-yellow: 43 96% 56%;
+    --acft-yellow-foreground: 0 0% 0%;
   }
 
   .dark {
@@ -57,20 +59,14 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 214 84% 56%;
-    --primary-foreground: 0 0% 98%;
+    --primary: var(--acft-yellow); /* Make primary yellow in dark mode */
+    --primary-foreground: var(--acft-yellow-foreground);
+    --accent: var(--acft-yellow);
+    --accent-foreground: var(--acft-yellow-foreground);
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --acft-yellow: 43 96% 56%; /* #FACC15 (tailwind yellow-400) */
+    --acft-yellow-light: 48 96% 89%; /* #FEF3C7 */
+    --acft-yellow-dark: 41 97% 46%;  /* #F59E0B */
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
@@ -104,9 +100,19 @@
   
   .acft-card {
     @apply bg-card border border-border rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200;
+    @apply dark:border-acft-yellow-400 dark:shadow-[0_4px_24px_0_rgba(250,204,21,0.05)];
   }
   
   .acft-button {
     @apply bg-acft-blue-600 hover:bg-acft-blue-700 text-white font-medium px-6 py-3 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-acft-blue-500 focus:ring-offset-2;
+    @apply dark:bg-acft-yellow-400 dark:hover:bg-acft-yellow-500 dark:text-acft-yellow-900 dark:focus:ring-acft-yellow-400;
+  }
+
+  .acft-blog-highlight {
+    @apply dark:text-acft-yellow-400;
+  }
+
+  .acft-blog-card-highlight {
+    @apply dark:border-acft-yellow-400 dark:shadow-[0_2px_12px_0_rgba(250,204,21,0.08)];
   }
 }

@@ -72,18 +72,18 @@ const Blog = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 acft-blog-highlight">
             ACFT Blog
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4">
-            Expert tips, training guides, and insights to help you excel in the Army Combat Fitness Test
+            <span className="acft-blog-highlight">Expert tips, training guides, and insights</span> to help you excel in the Army Combat Fitness Test
           </p>
         </div>
 
         {/* Blog Posts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {blogPosts.map((post) => (
-            <Card key={post.id} className="hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+            <Card key={post.id} className="hover:shadow-lg transition-shadow duration-300 overflow-hidden acft-blog-card-highlight">
               <div className="aspect-video relative overflow-hidden">
                 <img 
                   src={post.image} 
@@ -94,7 +94,7 @@ const Blog = () => {
               <CardHeader className="p-4 sm:p-6">
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground mb-2">
                   <div className="flex items-center space-x-1">
-                    <Calendar className="h-4 w-4" />
+                    <Calendar className="h-4 w-4 acft-blog-highlight" />
                     <span>{new Date(post.date).toLocaleDateString('en-US', { 
                       year: 'numeric', 
                       month: 'long', 
@@ -102,11 +102,11 @@ const Blog = () => {
                     })}</span>
                   </div>
                   <div className="flex items-center space-x-1">
-                    <User className="h-4 w-4" />
+                    <User className="h-4 w-4 acft-blog-highlight" />
                     <span>{post.author}</span>
                   </div>
                 </div>
-                <CardTitle className="text-lg sm:text-xl mb-2 line-clamp-2 leading-tight">
+                <CardTitle className="text-lg sm:text-xl mb-2 line-clamp-2 leading-tight acft-blog-highlight">
                   {post.title}
                 </CardTitle>
                 <CardDescription className="line-clamp-3 text-sm sm:text-base">
@@ -118,10 +118,10 @@ const Blog = () => {
                   <span className="text-sm text-muted-foreground">{post.readTime}</span>
                   <Link 
                     to={`/blog/${post.slug}`}
-                    className="inline-flex items-center space-x-1 text-primary hover:text-primary/80 font-medium transition-colors text-sm sm:text-base"
+                    className="inline-flex items-center space-x-1 text-primary hover:text-acft-yellow-400 font-medium transition-colors text-sm sm:text-base"
                   >
                     <span>Read More</span>
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight className="h-4 w-4 acft-blog-highlight" />
                   </Link>
                 </div>
               </CardContent>
@@ -130,8 +130,8 @@ const Blog = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-12 sm:mt-16 text-center bg-muted/30 rounded-lg p-6 sm:p-8 mx-4 sm:mx-0">
-          <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4">
+        <div className="mt-12 sm:mt-16 text-center bg-muted/30 rounded-lg p-6 sm:p-8 mx-4 sm:mx-0 border dark:border-acft-yellow-400">
+          <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4 acft-blog-highlight">
             Ready to Calculate Your ACFT Score?
           </h2>
           <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
@@ -139,7 +139,7 @@ const Blog = () => {
           </p>
           <Link 
             to="/calculator"
-            className="inline-flex items-center space-x-2 bg-primary text-primary-foreground px-6 py-3 rounded-md font-medium hover:bg-primary/90 transition-colors"
+            className="inline-flex items-center space-x-2 bg-primary text-primary-foreground px-6 py-3 rounded-md font-medium hover:bg-acft-yellow-600 transition-colors acft-blog-highlight"
           >
             <span>Try Calculator</span>
             <ArrowRight className="h-4 w-4" />
