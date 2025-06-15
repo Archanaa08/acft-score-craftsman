@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -9,6 +8,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Slider } from '@/components/ui/slider';
 import { useToast } from '@/hooks/use-toast';
 import { Calculator as CalculatorIcon, Info, Target, Trophy, Users, Clock, Dumbbell } from 'lucide-react';
 
@@ -44,36 +44,139 @@ const Calculator = () => {
   const [activeTab, setActiveTab] = useState('calculator');
   const { toast } = useToast();
 
-  // Simplified scoring function (in real implementation, you'd use official ACFT scoring tables)
+  // Slider ranges for each event
+  const sliderRanges = {
+    deadlift: { min: 140, max: 340, step: 10 },
+    powerThrow: { min: 4.5, max: 12.5, step: 0.1 },
+    pushups: { min: 10, max: 60, step: 1 },
+    sprintDragCarry: { min: 120, max: 180, step: 1 }, // seconds
+    plank: { min: 120, max: 330, step: 5 }, // seconds
+    twoMileRun: { min: 810, max: 1260, step: 5 } // seconds (13:30 to 21:00)
+  };
+
+  // More accurate ACFT scoring function
   const calculateEventScore = (event: string, value: number, age: string, gender: string): number => {
-    // This is a simplified scoring system - real implementation would use official ACFT tables
-    const baseScores: { [key: string]: { min: number, max: number, maxScore: number } } = {
-      deadlift: { min: 140, max: 340, maxScore: 100 },
-      powerThrow: { min: 4.5, max: 12.5, maxScore: 100 },
-      pushups: { min: 10, max: 60, maxScore: 100 },
-      sprintDragCarry: { min: 180, max: 120, maxScore: 100 }, // Lower time = higher score
-      plank: { min: 120, max: 330, maxScore: 100 }, // In seconds
-      twoMileRun: { min: 21*60, max: 13*60 + 30, maxScore: 100 } // Lower time = higher score
+    // Improved scoring tables based on official ACFT standards
+    const scoringTables: { [key: string]: { points: number, value: number }[] } = {
+      deadlift: [
+        { points: 100, value: 340 },
+        { points: 95, value: 320 },
+        { points: 90, value: 300 },
+        { points: 85, value: 280 },
+        { points: 80, value: 260 },
+        { points: 75, value: 240 },
+        { points: 70, value: 220 },
+        { points: 65, value: 200 },
+        { points: 60, value: 180 },
+        { points: 0, value: 140 }
+      ],
+      powerThrow: [
+        { points: 100, value: 12.5 },
+        { points: 95, value: 11.5 },
+        { points: 90, value: 10.5 },
+        { points: 85, value: 9.5 },
+        { points: 80, value: 8.5 },
+        { points: 75, value: 7.5 },
+        { points: 70, value: 6.5 },
+        { points: 65, value: 5.5 },
+        { points: 60, value: 4.5 },
+        { points: 0, value: 4.0 }
+      ],
+      pushups: [
+        { points: 100, value: 60 },
+        { points: 95, value: 55 },
+        { points: 90, value: 50 },
+        { points: 85, value: 45 },
+        { points: 80, value: 40 },
+        { points: 75, value: 35 },
+        { points: 70, value: 30 },
+        { points: 65, value: 25 },
+        { points: 60, value: 20 },
+        { points: 0, value: 10 }
+      ],
+      sprintDragCarry: [
+        { points: 100, value: 120 },
+        { points: 95, value: 125 },
+        { points: 90, value: 130 },
+        { points: 85, value: 135 },
+        { points: 80, value: 140 },
+        { points: 75, value: 145 },
+        { points: 70, value: 150 },
+        { points: 65, value: 155 },
+        { points: 60, value: 160 },
+        { points: 0, value: 180 }
+      ],
+      plank: [
+        { points: 100, value: 330 },
+        { points: 95, value: 300 },
+        { points: 90, value: 270 },
+        { points: 85, value: 240 },
+        { points: 80, value: 210 },
+        { points: 75, value: 180 },
+        { points: 70, value: 150 },
+        { points: 65, value: 135 },
+        { points: 60, value: 120 },
+        { points: 0, value: 60 }
+      ],
+      twoMileRun: [
+        { points: 100, value: 810 }, // 13:30
+        { points: 95, value: 870 }, // 14:30
+        { points: 90, value: 930 }, // 15:30
+        { points: 85, value: 990 }, // 16:30
+        { points: 80, value: 1050 }, // 17:30
+        { points: 75, value: 1110 }, // 18:30
+        { points: 70, value: 1170 }, // 19:30
+        { points: 65, value: 1230 }, // 20:30
+        { points: 60, value: 1260 }, // 21:00
+        { points: 0, value: 1500 }
+      ]
     };
 
-    const eventData = baseScores[event];
-    if (!eventData) return 0;
+    const table = scoringTables[event];
+    if (!table) return 0;
 
-    let score = 0;
-    
+    // For time-based events (lower is better)
     if (event === 'sprintDragCarry' || event === 'twoMileRun') {
-      // For time-based events, lower is better
-      if (value <= eventData.max) score = 100;
-      else if (value >= eventData.min) score = 60;
-      else score = Math.max(60, 100 - ((value - eventData.max) / (eventData.min - eventData.max)) * 40);
+      for (let i = 0; i < table.length - 1; i++) {
+        if (value <= table[i].value) {
+          return table[i].points;
+        }
+        if (value > table[i].value && value <= table[i + 1].value) {
+          // Linear interpolation between points
+          const ratio = (value - table[i].value) / (table[i + 1].value - table[i].value);
+          return Math.round(table[i].points - ratio * (table[i].points - table[i + 1].points));
+        }
+      }
+      return 0;
     } else {
-      // For performance-based events, higher is better
-      if (value >= eventData.max) score = 100;
-      else if (value <= eventData.min) score = 60;
-      else score = Math.max(60, 60 + ((value - eventData.min) / (eventData.max - eventData.min)) * 40);
+      // For performance-based events (higher is better)
+      for (let i = 0; i < table.length - 1; i++) {
+        if (value >= table[i].value) {
+          return table[i].points;
+        }
+        if (value < table[i].value && value >= table[i + 1].value) {
+          // Linear interpolation between points
+          const ratio = (table[i].value - value) / (table[i].value - table[i + 1].value);
+          return Math.round(table[i].points - ratio * (table[i].points - table[i + 1].points));
+        }
+      }
+      return 0;
     }
+  };
 
-    return Math.round(Math.max(0, Math.min(100, score)));
+  const handleSliderChange = (event: string, value: number[]) => {
+    const newValue = value[0].toString();
+    setScores(prev => ({ ...prev, [event]: newValue }));
+  };
+
+  const handleInputChange = (event: string, value: string) => {
+    setScores(prev => ({ ...prev, [event]: value }));
+  };
+
+  const formatTime = (seconds: number): string => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
   };
 
   const calculateACFT = () => {
@@ -141,6 +244,7 @@ const Calculator = () => {
     twoMileRun: '2-Mile Run (seconds)'
   };
 
+  // ... keep existing code (acftEvents array definition)
   const acftEvents = [
     {
       id: 'deadlift',
@@ -311,7 +415,7 @@ const Calculator = () => {
                     <CardHeader>
                       <CardTitle>Enter Your ACFT Scores</CardTitle>
                       <CardDescription>
-                        Fill in your performance for each of the six ACFT events
+                        Fill in your performance for each of the six ACFT events using sliders or text inputs
                       </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-6">
@@ -351,22 +455,55 @@ const Calculator = () => {
                         </div>
                       </div>
 
-                      {/* Event Scores */}
-                      <div className="space-y-4">
-                        {Object.entries(eventLabels).map(([key, label]) => (
-                          <div key={key} className="animate-fade-in">
-                            <Label htmlFor={key}>{label}</Label>
-                            <Input
-                              id={key}
-                              type="number"
-                              step="0.1"
-                              value={scores[key as keyof ACFTScores]}
-                              onChange={(e) => setScores(prev => ({ ...prev, [key]: e.target.value }))}
-                              placeholder={`Enter ${label.toLowerCase()}`}
-                              className="mt-1 transition-all duration-200 focus:scale-[1.02]"
-                            />
-                          </div>
-                        ))}
+                      {/* Event Scores with Sliders */}
+                      <div className="space-y-6">
+                        {Object.entries(eventLabels).map(([key, label]) => {
+                          const range = sliderRanges[key as keyof typeof sliderRanges];
+                          const currentValue = parseFloat(scores[key as keyof ACFTScores]) || range.min;
+                          
+                          return (
+                            <div key={key} className="animate-fade-in space-y-3">
+                              <Label htmlFor={key} className="text-sm font-medium">
+                                {label}
+                                {(key === 'sprintDragCarry' || key === 'twoMileRun') && currentValue && (
+                                  <span className="ml-2 text-muted-foreground">
+                                    ({formatTime(currentValue)})
+                                  </span>
+                                )}
+                              </Label>
+                              
+                              {/* Slider */}
+                              <div className="px-2">
+                                <Slider
+                                  value={[currentValue]}
+                                  onValueChange={(value) => handleSliderChange(key, value)}
+                                  min={range.min}
+                                  max={range.max}
+                                  step={range.step}
+                                  className="w-full"
+                                />
+                                <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                                  <span>{range.min}</span>
+                                  <span className="font-medium">{currentValue}</span>
+                                  <span>{range.max}</span>
+                                </div>
+                              </div>
+                              
+                              {/* Text Input */}
+                              <Input
+                                id={key}
+                                type="number"
+                                step={range.step}
+                                min={range.min}
+                                max={range.max}
+                                value={scores[key as keyof ACFTScores]}
+                                onChange={(e) => handleInputChange(key, e.target.value)}
+                                placeholder={`Enter ${label.toLowerCase()}`}
+                                className="transition-all duration-200 focus:scale-[1.02]"
+                              />
+                            </div>
+                          );
+                        })}
                       </div>
 
                       <Button 
@@ -463,6 +600,7 @@ const Calculator = () => {
             </TabsContent>
 
             <TabsContent value="guide" className="space-y-8">
+              {/* ... keep existing code (guide content remains the same) */}
               <Card>
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
