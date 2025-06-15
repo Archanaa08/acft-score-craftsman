@@ -20,6 +20,11 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]
 
+# Set custom error documents
+ErrorDocument 403 /index.html
+ErrorDocument 404 /index.html
+ErrorDocument 500 /index.html
+
 # Set cache headers for static assets
 <IfModule mod_expires.c>
     ExpiresActive On
@@ -32,7 +37,7 @@ RewriteRule . /index.html [L]
     ExpiresByType image/svg+xml "access plus 1 year"
     ExpiresByType image/webp "access plus 1 year"
     ExpiresByType application/pdf "access plus 1 month"
-    ExpiresByType text/html "access plus 0 seconds"
+    ExpiresByType text/html "access plus 2 minutes"
 </IfModule>
 
 # Enable gzip compression
@@ -49,13 +54,17 @@ RewriteRule . /index.html [L]
     AddOutputFilterByType DEFLATE image/svg+xml
 </IfModule>
 
-# Security headers
+# Security Headers - enhanced
 <IfModule mod_headers.c>
-    Header always set X-Content-Type-Options nosniff
-    Header always set X-Frame-Options DENY
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
     Header always set X-XSS-Protection "1; mode=block"
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
     Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    Header always set Cross-Origin-Resource-Policy "same-origin"
+    Header always set Cross-Origin-Opener-Policy "same-origin"
+    Header always set Cross-Origin-Embedder-Policy "require-corp"
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 </IfModule>
 
 # Set proper MIME types
@@ -63,13 +72,63 @@ AddType application/javascript .js
 AddType text/css .css
 
 # Prevent access to sensitive files
-<Files ~ "^\.">
-    Order allow,deny
-    Deny from all
-</Files>
-
-# Block access to backup and log files
-<FilesMatch "\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp)$">
+<FilesMatch "^(\.env|\.htaccess|\.git|\.DS_Store|\.htpasswd|composer\.json|composer\.lock|package\.json|package-lock\.json|bun\.lockb|yarn\.lock|tsconfig\.json|vite\.config\.ts|tailwind\.config\.ts|\.ssh|\.ftpquota|\.bash.*|config\.php|db\.sql)$">
     Order allow,deny
     Deny from all
 </FilesMatch>
+
+# Block access to backup, log, config and related files
+<FilesMatch "\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|swp|tar|zip|gz|old|orig|save|tmp)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Block access to XML, JSON and CSV files (potential data leaks)
+<FilesMatch "\.(xml|json|csv)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Block suspicious query strings and patterns (basic WAF)
+<IfModule mod_rewrite.c>
+    # Block SQL injection
+    RewriteCond %{QUERY_STRING} (\%27)|(\')|(\-\-)|(\%23)|(#) [NC,OR]
+    RewriteCond %{QUERY_STRING} ((\%3D)|(=))[^\n]*((\%27)|(\')|(\-\-)|(\%3B)|(;)) [NC,OR]
+    RewriteCond %{QUERY_STRING} (\w*((\%27)|(\'))(\s)*((\%6F)|o|(\%4F))((\%72)|r|(\%52))) [NC,OR]
+    # Block common exploit scanners
+    RewriteCond %{QUERY_STRING} (base64_encode|union select|group_concat|sleep\() [NC,OR]
+    RewriteCond %{QUERY_STRING} (etc/passwd|boot\.ini|self/environ|\.ini|mosconfig) [NC,OR]
+    # Block file upload/remote code execution attempts
+    RewriteCond %{QUERY_STRING} (php://|eval\(|system\(|shell_exec\() [NC,OR]
+    RewriteCond %{REQUEST_URI} (wp-admin|wp-login\.php|xmlrpc\.php|phpmyadmin|wp-content|wp-includes|wp-config\.php) [NC,OR]
+    # Block suspicious user-agents
+    RewriteCond %{HTTP_USER_AGENT} (masscan|nmap|sqlmap|acunetix|w3af|nessus|nikto|crawler|scan|bot|python|curl|wget) [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# Block access to hidden dotfiles and dotfolders (except .well-known)
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+<DirectoryMatch "^\.">
+    Order allow,deny
+    Deny from all
+</DirectoryMatch>
+<Directory .well-known>
+    Allow from all
+</Directory>
+
+# Block hotlinking of images (replace acftscore.one if you want to allow specific referrers)
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https://(www\.)?acftscore\.one/ [NC]
+RewriteRule \.(jpg|jpeg|png|gif|webp|svg)$ - [F,NC,L]
+
+# OPTIONAL: Rate limit connection flood/simple DoS, basic example (enhanced should use fail2ban)
+# <IfModule mod_ratelimit.c>
+#     SetEnvIf Request_URI "^/.*" ratelimit=10
+#     SetEnvIf ratelimit 10 MOD_RATELIMIT=on
+#     SetOutputFilter RATE_LIMIT
+#     SetEnv rate-limit 400
+# </IfModule>
+
