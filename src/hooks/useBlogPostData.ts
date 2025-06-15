@@ -77,8 +77,8 @@ export const useBlogPostData = () => {
       date: '2025-06-10',
       author: 'ACFT Expert',
       readTime: '10 min read',
-      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop',
-      imageAlt: 'Monitor showing fitness scoring data and analytics',
+      image: '/lovable-uploads/dd74196a-5ff2-48ca-a8d3-f6edec3b3cf7.png',
+      imageAlt: 'ACFT score chart showing Gold and Gray categories, fitness and promotion icons',
       content: {
         introduction: 'The Army Combat Fitness Test (ACFT) scoring system plays a crucial role in determining not only your physical fitness category but also your promotion points, which directly impact your career advancement opportunities. Understanding how the ACFT score chart works and its relationship to promotion points is essential for every soldier aiming to excel in their military career.',
         sections: [

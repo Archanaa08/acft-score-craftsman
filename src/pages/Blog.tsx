@@ -24,8 +24,8 @@ const Blog = () => {
       author: 'ACFT Expert',
       readTime: '10 min read',
       slug: 'understanding-acft-score-chart-promotion-points',
-      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=250&fit=crop',
-      imageAlt: 'Monitor showing fitness scoring data and analytics'
+      image: '/lovable-uploads/dd74196a-5ff2-48ca-a8d3-f6edec3b3cf7.png',
+      imageAlt: 'ACFT score chart showing Gold and Gray categories, fitness and promotion icons',
     },
     {
       id: 'hex-bar-setup-acft-deadlift',
