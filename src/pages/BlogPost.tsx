@@ -9,6 +9,59 @@ const BlogPost = () => {
 
   // Blog post data - in a real app, this would come from a CMS or API
   const blogPosts = {
+    'understanding-acft-score-chart-promotion-points': {
+      title: 'Understanding the ACFT Score Chart and Its Impact on Promotion Points',
+      description: 'Master the ACFT scoring system and understand how your fitness test performance directly impacts your promotion points and career advancement opportunities in the Army.',
+      date: '2024-12-16',
+      author: 'ACFT Expert',
+      readTime: '10 min read',
+      content: {
+        introduction: 'The Army Combat Fitness Test (ACFT) scoring system plays a crucial role in determining not only your physical fitness category but also your promotion points, which directly impact your career advancement opportunities. Understanding how the ACFT score chart works and its relationship to promotion points is essential for every soldier aiming to excel in their military career.',
+        sections: [
+          {
+            title: 'ACFT Scoring Fundamentals',
+            content: 'The ACFT uses a 600-point scale, with each of the six events contributing up to 100 points. The minimum passing score is 60 points per event, totaling 360 points overall. However, achieving just the minimum won\'t maximize your promotion potential. The scoring system is designed to reward higher performance levels with significantly more points, creating a substantial advantage for soldiers who train beyond the minimum standards.'
+          },
+          {
+            title: 'Fitness Categories and Their Significance',
+            content: 'ACFT scores are divided into three fitness categories: Gold (540-600 points), Silver (480-539 points), and Black (360-479 points). These categories aren\'t just labels - they represent different levels of physical readiness and directly correlate with promotion point allocations. Gold category performance demonstrates exceptional physical fitness and commitment to maintaining high standards, while Silver shows above-average fitness levels.'
+          },
+          {
+            title: 'Promotion Points Breakdown',
+            content: 'Under the current promotion point system, physical fitness accounts for a significant portion of your total promotion points. Soldiers in the Gold fitness category receive the maximum points available for physical fitness, while those in Silver and Black categories receive proportionally fewer points. This system incentivizes continuous improvement and rewards soldiers who exceed minimum standards.'
+          },
+          {
+            title: 'Score Distribution Across Events',
+            content: 'Each ACFT event contributes equally to your total score, but understanding the point distribution within each event is crucial. The scoring charts use age and gender-neutral standards for most events, with some adjustments for the plank and 2-mile run. Focusing on events where you can make the most significant improvements will yield the best return on your training investment.'
+          },
+          {
+            title: 'Strategic Training for Maximum Points',
+            content: 'To optimize your ACFT score for promotion points, identify your weakest events and prioritize improvement in those areas. However, don\'t neglect your stronger events entirely. A balanced approach that pushes all events toward higher performance levels will yield the best overall score. Consider that improving from 70 to 80 points in one event provides the same benefit as improving from 80 to 90 points in another.'
+          },
+          {
+            title: 'Age and Gender Considerations',
+            content: 'While the ACFT uses primarily age and gender-neutral standards, the plank and 2-mile run do have some age-based adjustments. Understanding these nuances can help you set realistic goals and develop appropriate training strategies. Older soldiers may find certain events more challenging, but the scoring system accounts for physiological differences in these specific areas.'
+          },
+          {
+            title: 'Impact on Career Progression',
+            content: 'Your ACFT performance doesn\'t just affect immediate promotion opportunities - it can influence your entire career trajectory. Consistently high ACFT scores demonstrate reliability, discipline, and commitment to excellence. These qualities often translate into leadership opportunities, selection for specialized training, and consideration for prestigious assignments.'
+          },
+          {
+            title: 'Common Scoring Mistakes',
+            content: 'Many soldiers focus solely on passing rather than maximizing their scores. Others make the mistake of training only their strongest events while neglecting weaker areas. Some fail to understand that small improvements across multiple events can yield significant total score increases. Avoid these pitfalls by taking a comprehensive approach to ACFT preparation.'
+          },
+          {
+            title: 'Long-term Score Management',
+            content: 'ACFT scores can fluctuate based on training cycles, deployment schedules, and life circumstances. Develop strategies for maintaining consistent performance over time. This includes understanding seasonal training patterns, managing test anxiety, and maintaining fitness during periods when formal PT may be limited.'
+          },
+          {
+            title: 'Maximizing Your Competitive Edge',
+            content: 'In today\'s competitive promotion environment, every point matters. Soldiers who consistently achieve Gold category scores position themselves advantageously for promotion boards. Beyond the immediate point benefits, high ACFT performance often correlates with success in other military training and operational environments, creating a positive feedback loop for career advancement.'
+          }
+        ],
+        conclusion: 'Understanding the ACFT score chart and its impact on promotion points is fundamental to career success in the modern Army. By focusing on comprehensive fitness improvement rather than minimum standards, soldiers can maximize their promotion potential while developing the physical capabilities necessary for combat effectiveness. Remember that ACFT success is a marathon, not a sprint - consistent training and strategic preparation will yield the best long-term results for both your fitness and your career.'
+      }
+    },
     'hex-bar-setup-acft-deadlift': {
       title: 'How to Properly Set Up a Hex Bar for the ACFT Deadlift',
       description: 'Master the proper technique and setup for maximizing your ACFT deadlift performance with a hex bar. Essential tips for form, safety, and scoring higher.',
@@ -109,10 +162,12 @@ const BlogPost = () => {
           "@id": `https://acft-calculator.com/blog/${slug}`
         },
         "articleSection": "Fitness",
-        "keywords": "ACFT, deadlift, hex bar, Army Combat Fitness Test, military fitness, training"
+        "keywords": slug === 'understanding-acft-score-chart-promotion-points' 
+          ? "ACFT score chart, promotion points, Army fitness test, military career, ACFT scoring, fitness categories"
+          : "ACFT, deadlift, hex bar, Army Combat Fitness Test, military fitness, training"
       };
 
-      let scriptTag = document.querySelector('script[type="application/ld+json"][data-article]');
+      let scriptTag = document.querySelector('script[type="application/ld+json"][data-article]') as HTMLScriptElement;
       if (scriptTag) {
         scriptTag.textContent = JSON.stringify(structuredData);
       } else {
@@ -205,10 +260,16 @@ const BlogPost = () => {
         {/* Call to Action */}
         <div className="mt-12 text-center bg-primary/5 rounded-lg p-8">
           <h3 className="text-2xl font-bold text-foreground mb-4">
-            Ready to Test Your ACFT Deadlift Score?
+            {slug === 'understanding-acft-score-chart-promotion-points' 
+              ? 'Calculate Your ACFT Score and Promotion Points'
+              : 'Ready to Test Your ACFT Deadlift Score?'
+            }
           </h3>
           <p className="text-muted-foreground mb-6">
-            Use our ACFT calculator to see how your deadlift performance translates to points.
+            {slug === 'understanding-acft-score-chart-promotion-points'
+              ? 'Use our ACFT calculator to see your fitness category and understand your promotion point potential.'
+              : 'Use our ACFT calculator to see how your deadlift performance translates to points.'
+            }
           </p>
           <Link to="/calculator">
             <Button size="lg">

@@ -7,6 +7,15 @@ import { Calendar, User, ArrowRight } from 'lucide-react';
 const Blog = () => {
   const blogPosts = [
     {
+      id: 'understanding-acft-score-chart-promotion-points',
+      title: 'Understanding the ACFT Score Chart and Its Impact on Promotion Points',
+      description: 'Comprehensive guide to ACFT scoring system, fitness categories, and how your test performance directly affects promotion points and career advancement in the Army.',
+      date: '2024-12-16',
+      author: 'ACFT Expert',
+      readTime: '10 min read',
+      slug: 'understanding-acft-score-chart-promotion-points'
+    },
+    {
       id: 'hex-bar-setup-acft-deadlift',
       title: 'How to Properly Set Up a Hex Bar for the ACFT Deadlift',
       description: 'Learn the proper technique and setup for maximizing your ACFT deadlift performance with a hex bar. Essential tips for proper form and safety.',
@@ -17,30 +26,35 @@ const Blog = () => {
     }
   ];
 
+  // Handle SEO meta updates
+  React.useEffect(() => {
+    document.title = 'ACFT Blog - Army Combat Fitness Test Tips & Guides | ACFT Calculator';
+    
+    // Update meta description
+    let metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Expert ACFT tips, training guides, and fitness advice for the Army Combat Fitness Test. Learn proper techniques for all 6 ACFT events to maximize your score.');
+    }
+
+    // Update canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      canonical.setAttribute('href', 'https://acft-calculator.com/blog');
+    } else {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      canonical.setAttribute('href', 'https://acft-calculator.com/blog');
+      document.head.appendChild(canonical);
+    }
+
+    // Cleanup function
+    return () => {
+      // Optional cleanup if needed
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
-      {/* SEO Meta Tags via document.title */}
-      {React.useEffect(() => {
-        document.title = 'ACFT Blog - Army Combat Fitness Test Tips & Guides | ACFT Calculator';
-        
-        // Update meta description
-        let metaDescription = document.querySelector('meta[name="description"]');
-        if (metaDescription) {
-          metaDescription.setAttribute('content', 'Expert ACFT tips, training guides, and fitness advice for the Army Combat Fitness Test. Learn proper techniques for all 6 ACFT events to maximize your score.');
-        }
-
-        // Update canonical URL
-        let canonical = document.querySelector('link[rel="canonical"]');
-        if (canonical) {
-          canonical.setAttribute('href', 'https://acft-calculator.com/blog');
-        } else {
-          canonical = document.createElement('link');
-          canonical.setAttribute('rel', 'canonical');
-          canonical.setAttribute('href', 'https://acft-calculator.com/blog');
-          document.head.appendChild(canonical);
-        }
-      }, [])}
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
         <div className="text-center mb-12">
