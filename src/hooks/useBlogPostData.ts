@@ -1,12 +1,13 @@
-
 export const useBlogPostData = () => {
   const blogPosts = {
     'what-is-acft-comprehensive-overview': {
       title: 'What is ACFT? A Comprehensive Overview of the Army Combat Fitness Test',
       description: 'Complete beginner\'s guide to the Army Combat Fitness Test (ACFT). Learn about all 6 events, ACFT score chart, scoring system, and how it impacts promotion points in your military career.',
-      date: '2024-12-17',
+      date: '2025-06-15',
       author: 'ACFT Expert',
       readTime: '12 min read',
+      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=400&fit=crop',
+      imageAlt: 'Person using laptop for ACFT training research',
       content: {
         introduction: 'The Army Combat Fitness Test (ACFT) represents a revolutionary change in how the U.S. Army measures physical fitness and combat readiness. Replacing the decades-old Army Physical Fitness Test (APFT), the ACFT is designed to better assess functional fitness that directly translates to battlefield performance. Whether you\'re a new recruit, seasoned soldier, or simply curious about military fitness standards, this comprehensive guide will help you understand everything about the ACFT, from its six challenging events to how the ACFT score chart impacts your military career.',
         sections: [
@@ -73,9 +74,11 @@ export const useBlogPostData = () => {
     'understanding-acft-score-chart-promotion-points': {
       title: 'Understanding the ACFT Score Chart and Its Impact on Promotion Points',
       description: 'Master the ACFT scoring system and understand how your fitness test performance directly impacts your promotion points and career advancement opportunities in the Army.',
-      date: '2024-12-16',
+      date: '2025-06-10',
       author: 'ACFT Expert',
       readTime: '10 min read',
+      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop',
+      imageAlt: 'Monitor showing fitness scoring data and analytics',
       content: {
         introduction: 'The Army Combat Fitness Test (ACFT) scoring system plays a crucial role in determining not only your physical fitness category but also your promotion points, which directly impact your career advancement opportunities. Understanding how the ACFT score chart works and its relationship to promotion points is essential for every soldier aiming to excel in their military career.',
         sections: [
@@ -126,9 +129,11 @@ export const useBlogPostData = () => {
     'hex-bar-setup-acft-deadlift': {
       title: 'How to Properly Set Up a Hex Bar for the ACFT Deadlift',
       description: 'Master the proper technique and setup for maximizing your ACFT deadlift performance with a hex bar. Essential tips for form, safety, and scoring higher.',
-      date: '2024-12-15',
+      date: '2025-06-05',
       author: 'ACFT Expert',
       readTime: '8 min read',
+      image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&h=400&fit=crop',
+      imageAlt: 'Fitness equipment and laptop showing training data',
       content: {
         introduction: 'The 3-Repetition Maximum Deadlift (MDL) is the first event in the Army Combat Fitness Test, and proper hex bar setup is crucial for both performance and safety. This comprehensive guide will walk you through every aspect of setting up and executing the perfect ACFT deadlift.',
         sections: [
