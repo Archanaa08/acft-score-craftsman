@@ -47,7 +47,7 @@ const Blog = () => {
       document.head.appendChild(canonical);
     }
 
-    // Cleanup function
+    // Return cleanup function
     return () => {
       // Optional cleanup if needed
     };
