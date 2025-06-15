@@ -1,9 +1,8 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calculator, Arrow_right } from 'lucide-react';
+import { Calculator, ArrowRight } from 'lucide-react';
 
 const Home = () => {
   const features = [
@@ -43,7 +42,7 @@ const Home = () => {
                 <Button size="lg" className="acft-button flex items-center space-x-2">
                   <Calculator className="h-5 w-5" />
                   <span>Calculate ACFT Score</span>
-                  <Arrow_right className="h-4 w-4" />
+                  <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
             </div>
